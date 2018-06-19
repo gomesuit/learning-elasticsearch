@@ -7,5 +7,8 @@ yum -y install elasticsearch
 cp -f /etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options.bk
 cp -f /vagrant/etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options
 
+cp -f /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.bk
+cp -f /vagrant/etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+
 systemctl enable elasticsearch
 systemctl start elasticsearch
