@@ -1,22 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
-
-  config.vm.box = "centos/7"
+Vagrant.configure('2') do |config|
+  config.vm.box = 'bento/centos-7.3'
 
   config.vm.define :server do |host|
-    _HOSTNAME = "server"
-    _PRIVATE_IP_ADDRESS = "192.168.33.10"
+    hostname = 'server'
+    private_ip_address = '192.168.33.10'
 
-    host.vm.hostname = _HOSTNAME
-    host.vm.network "private_network", ip: _PRIVATE_IP_ADDRESS
-    host.vm.provision :shell, :path => "install-common-package.sh"
-    host.vm.provision :shell, :path => "stop-security.sh"
-    host.vm.provision :shell, :path => "install-elasticsearch.sh"
+    host.vm.hostname = hostname
+    host.vm.network 'private_network', ip: private_ip_address
+    host.vm.provision :shell, path: 'install-common-package.sh'
+    host.vm.provision :shell, path: 'stop-security.sh'
+    host.vm.provision :shell, path: 'install-elasticsearch.sh'
   end
-
 end
