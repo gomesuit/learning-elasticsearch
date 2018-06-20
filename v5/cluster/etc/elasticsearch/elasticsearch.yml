@@ -15,12 +15,14 @@
 # Use a descriptive name for your cluster:
 #
 #cluster.name: my-application
+cluster.name: my-application
 #
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
 #
 #node.name: node-1
+node.name: __NODE_NAME__
 #
 # Add custom attributes to the node:
 #
@@ -53,7 +55,8 @@
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
 #network.host: 192.168.0.1
-network.host: 0.0.0.0
+#network.host: 0.0.0.0
+network.host: _enp0s8:ipv4_
 #
 # Set a custom port for HTTP:
 #
@@ -67,6 +70,7 @@ network.host: 0.0.0.0
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
 #discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+discovery.zen.ping.unicast.hosts: ["192.168.33.11", "192.168.33.12", "192.168.33.13"]
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
 #
