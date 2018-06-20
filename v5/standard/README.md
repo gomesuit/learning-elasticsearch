@@ -32,3 +32,8 @@ curl "http://192.168.33.10:9200/sample_index/doc01/1?pretty"
 # データの検索
 curl "http://192.168.33.10:9200/sample_index/doc01/_search?q=description:sample&pretty=true"
 ```
+
+```
+curator_cli --host 192.168.33.10 show_indices
+```
+
