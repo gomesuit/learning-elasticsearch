@@ -22,6 +22,7 @@ curl -X PUT "http://192.168.33.10:9200/sample_index/doc01/1" -d '{
     "description" : "This is a sample data",
     "amount" : 20
 }'
+# curl -XPOST 'http://192.168.33.10:9200/sample_index/sample/_bulk?pretty' --data-binary "@sample.json"
 
 # マッピングの確認
 curl "http://192.168.33.10:9200/sample_index/_mapping/doc01?pretty"
