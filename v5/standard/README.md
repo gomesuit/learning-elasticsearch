@@ -32,6 +32,9 @@ curl "http://192.168.33.10:9200/sample_index/doc01/1?pretty"
 
 # データの検索
 curl "http://192.168.33.10:9200/sample_index/doc01/_search?q=description:sample&pretty=true"
+
+# シャードの確認
+curl "http://192.168.33.11:9200/_cat/shards?v
 ```
 
 ```
