@@ -8,6 +8,7 @@ cp -f /etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options.bk
 cp -f /vagrant/etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options
 
 /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
+/usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
 
 systemctl enable elasticsearch
 systemctl start elasticsearch
