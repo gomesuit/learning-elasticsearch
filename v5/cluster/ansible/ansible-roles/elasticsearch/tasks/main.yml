@@ -23,12 +23,14 @@
     dest: /etc/elasticsearch/jvm.options
     mode: 0644
     backup: true
+  notify: restart elasticsearch
 
 - copy:
     src: etc/elasticsearch/elasticsearch.yml
     dest: /etc/elasticsearch/elasticsearch.yml
     mode: 0644
     backup: true
+  notify: restart elasticsearch
 
 - service:
     name: elasticsearch
@@ -38,7 +40,9 @@
 - elasticsearch_plugin:
     name: analysis-kuromoji
     version: 5.1.1
+  notify: restart elasticsearch
 
 - elasticsearch_plugin:
     name: analysis-icu
     version: 5.1.1
+  notify: restart elasticsearch
