@@ -1,0 +1,44 @@
+---
+- name: common package
+  yum:
+    name: '{{ item }}'
+  with_items:
+    - net-tools
+    - vim
+
+- yum:
+    name: java-1.8.0-openjdk
+
+- copy:
+    src: etc/yum.repos.d/elasticsearch.repo
+    dest: /etc/yum.repos.d/elasticsearch.repo
+    mode: 0644
+    backup: true
+
+- yum:
+    name: elasticsearch
+
+- copy:
+    src: etc/elasticsearch/jvm.options
+    dest: /etc/elasticsearch/jvm.options
+    mode: 0644
+    backup: true
+
+- copy:
+    src: etc/elasticsearch/elasticsearch.yml
+    dest: /etc/elasticsearch/elasticsearch.yml
+    mode: 0644
+    backup: true
+
+- service:
+    name: elasticsearch
+    state: started
+    enabled: true
+
+- elasticsearch_plugin:
+    name: analysis-kuromoji
+    version: 5.1.1
+
+- elasticsearch_plugin:
+    name: analysis-icu
+    version: 5.1.1

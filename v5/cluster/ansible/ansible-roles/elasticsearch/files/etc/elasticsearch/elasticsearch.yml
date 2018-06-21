@@ -22,7 +22,7 @@ cluster.name: my-application
 # Use a descriptive name for the node:
 #
 #node.name: node-1
-node.name: __NODE_NAME__
+node.name: ${HOSTNAME}
 #
 # Add custom attributes to the node:
 #
