@@ -1,3 +1,6 @@
+- 参考
+  - https://www.elastic.co/guide/en/elasticsearch/client/curator/current/singleton-cli.html
+
 ```
 pip install elasticsearch-curator
 ```
