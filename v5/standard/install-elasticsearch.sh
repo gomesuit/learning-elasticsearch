@@ -1,22 +1,16 @@
 #!/bin/sh
 
-yum install -y java-1.8.0-openjdk
+yum -y install java-1.8.0-openjdk
+cp -f /vagrant/etc/yum.repos.d/elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
+yum -y install elasticsearch-5.1.1-1
 
-#echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.91-1.b14.el7_2.x86_64' >> ~/.bash_profile
-#. ~/.bash_profile
+cp -f /etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options.bk
+cp -f /vagrant/etc/elasticsearch/jvm.options /etc/elasticsearch/jvm.options
 
-#curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
+cp -f /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.bk
+cp -f /vagrant/etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 
-#tar -xvf elasticsearch-2.3.4.tar.gz
-#cd elasticsearch-2.3.4/bin/
-#./elasticsearch
+/usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
 
-yum install -y https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/rpm/elasticsearch/2.3.4/elasticsearch-2.3.4.rpm
-
-
-echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
-
-
-
-systemctl enable elasticsearch.service
-systemctl start elasticsearch.service
+systemctl enable elasticsearch
+systemctl start elasticsearch
