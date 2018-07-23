@@ -12,6 +12,7 @@ cp -f /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.
 cp -f /vagrant/etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 
 /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
+/usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
 
 /usr/share/elasticsearch/bin/elasticsearch-plugin install x-pack
 
